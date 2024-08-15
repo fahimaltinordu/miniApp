@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENR Token</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1 >EnergyFi</h1>
+        <div class="settings">
+            <div><img src="wallet-icon.svg" height="30px" alt=""></div>
+            <div><img src="settings-icon.svg" height="30px" alt=""></div>
+        </div>
+    </div>
+
+
+    <div class="play">
+        <h1>Balance</h1>
+        <h1 id="points">0 ENR</h1>
+        <img id="cookie-img" src="ENR.png" width="200" onclick="clickCookie()">
+        <div id="healthContainer">
+            <div id="healthBar" style="width: 100%;"></div>
+        </div>
+        <p id="healthCount">1000</p>
+        <!-- <p id="points">ENR Token: 0</p> -->
+        <p id="multitap">Multitap: 0 (Cost: 50 ENR)</p>
+        <button id="buy-multitap" onclick="buyMultitap()">Buy Multitap</button>
+    </div>
+
+    <div class="footer">
+        <div><a href="">Home</a></div>
+        <div><a href="">Refer</a></div>
+        <div><a href="">Tasks</a></div>
+        <div><a href="">Airdrop</a></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

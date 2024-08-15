@@ -1,15 +1,28 @@
 let points = 0;
 let multitapLevel = 1;
 let multitapCost = 50;
+let health = 1000;
+let interval = setInterval(updateHealth, 1000);
+
 
 // Load saved points, multitap level, and multitap cost from local storage
 window.onload = function () {
     let savedPoints = localStorage.getItem("points");
+    let savedHealth = localStorage.getItem("health");
+    let savedHealthBar = localStorage.getItem("health");
     let savedMultitapLevel = localStorage.getItem("multitapLevel");
     let savedMultitapCost = localStorage.getItem("multitapCost");
     if (savedPoints) {
         points = parseInt(savedPoints);
         document.getElementById("points").innerText = points + " ENR";
+    }
+    if (savedHealth) {
+        health = parseInt(savedHealth);
+        document.getElementById("healthCount").innerText = health;
+    }
+    if (savedHealthBar) {
+        health = parseInt(savedHealthBar);
+        document.getElementById("healthBar").style.width = (health / 10) + "%";
     }
     if (savedMultitapLevel) {
         multitapLevel = parseInt(savedMultitapLevel);
@@ -23,8 +36,6 @@ window.onload = function () {
 
 
 // UPDATE HEALTH
-let health = 1000;
-let interval = setInterval(updateHealth, 1000);
 
 function updateHealth() {
     check();
@@ -38,6 +49,7 @@ function updateHealth() {
 
     document.getElementById("healthCount").innerText = health;
     document.getElementById("healthBar").style.width = (health / 10) + "%";
+    saveGame();
 }
 
 //BLUR LOGO
@@ -85,6 +97,7 @@ function updateMultitapDisplay() {
 // Function to save game using local storage
 function saveGame() {
     localStorage.setItem("points", points);
+    localStorage.setItem("health", health);
     localStorage.setItem("multitapLevel", multitapLevel);
     localStorage.setItem("multitapCost", multitapCost);
     updateMultitapDisplay(); // Update the display after saving to ensure the correct cost is shown
